@@ -1,5 +1,5 @@
 class Review < ActiveRecord::Base
-  attr_accessible :rating, :restaurant_id, :user_id
+  attr_accessible :rating, :restaurant_id, :user_id, :text
 
   validates_presence_of :user, :restaurant, :rating, :text
 

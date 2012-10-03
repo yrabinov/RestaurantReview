@@ -6,8 +6,9 @@
         - @review.errors.full_messages.each do |msg|
           %li= msg
 
-    = f.hidden_field :user_id, current_user.id
-    = f.hidden_field :restaurant_id, @restaurant.id
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :restaurant_id, value: @restaurant.id
+
   .field
     = f.label :rating
     - 5.times do |i|

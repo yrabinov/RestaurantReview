@@ -5,13 +5,22 @@
     %th Name
     %th Location
     %th Telephone
+    %th Number of reviews
+    %th Average
 
   - @restaurants.each do |restaurant|
     %tr
       %td= link_to restaurant.name, restaurant 
       %td= restaurant.location
       %td= restaurant.telephone
-      %td= link_to "Review it!", new_review_path(restaurant_id: restaurant.id)
+      %td= restaurant.reviews.count
+      %td= restaurant.reviews.average(:rating)
+      - if current_user
+        %td
+          - if restaurant.reviews.where(user_id: current_user.id).count == 1
+            Modify
+          -else
+            = link_to "Review it!", new_review_path(restaurant_id: restaurant.id)
 
 %br
 

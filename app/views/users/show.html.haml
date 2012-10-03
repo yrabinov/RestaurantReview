@@ -1,5 +1,12 @@
-%h3 User
-%p
-  User: #{@user.name}
-%p
-  Email: #{@user.email if @user.email}
+%h3
+  Reviews by
+  = @user.name
+
+- @user.reviews.each do |review|
+  .review
+    %h4= link_to review.restaurant.name, restaurant_path(review.restaurant.id)
+    .rating
+      Rating: 
+      = review.rating
+    .text
+      = review.text

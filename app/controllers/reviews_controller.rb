@@ -38,16 +38,18 @@ class ReviewsController < ApplicationController
   # GET /reviews/1/edit
   def edit
     @review = Review.find(params[:id])
+    @restaurant = @review.restaurant
   end
 
   # POST /reviews
   # POST /reviews.json
   def create
     @review = Review.new(params[:review])
+    @restaurant = @review.restaurant
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to @review.restaurant, notice: 'Review was successfully created.' }
         format.json { render json: @review, status: :created, location: @review }
       else
         format.html { render action: "new" }
