@@ -1,4 +1,7 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+%h2 Welcome to Restaurant Reviews!
+
+%h3
+  =link_to "Browse By Restaurant", restaurants_path
+
+%h3
+  =link_to "Browse By User", users_path
