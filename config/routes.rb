@@ -1,4 +1,6 @@
 RestaurantReview::Application.routes.draw do
+  resources :reviews
+
   resources :restaurants
 
   authenticated :user do
