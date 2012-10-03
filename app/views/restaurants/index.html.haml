@@ -20,4 +20,5 @@
 
 %br
 
-= link_to 'New Restaurant', new_restaurant_path
+- if current_user
+  = link_to "Don't see what you're looking for?  Add a new restaurant!", new_restaurant_path
