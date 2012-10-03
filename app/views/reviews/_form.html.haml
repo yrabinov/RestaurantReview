@@ -6,14 +6,16 @@
         - @review.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
-    = f.label :restaurant_id
-    = f.number_field :restaurant_id
+    = f.hidden_field :user_id, current_user.id
+    = f.hidden_field :restaurant_id, @restaurant.id
   .field
     = f.label :rating
-    = f.number_field :rating
+    - 5.times do |i|
+      = i+1
+      = f.radio_button :rating, i+1
+
+  .field 
+    = f.label :review
+    = f.text_field :text
   .actions
     = f.submit 'Save'

@@ -1,4 +1,11 @@
-%h1 New review
+%h1 
+  New review for
+  = @restaurant.name
+
+%h4
+  = @restaurant.location
+%h4
+  = @restaurant.telephone
 
 = render 'form'
 
