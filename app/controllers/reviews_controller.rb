@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]  
+
   # GET /reviews
   # GET /reviews.json
   def index

@@ -5,18 +5,12 @@
     %th Name
     %th Location
     %th Telephone
-    %th
-    %th
-    %th
 
   - @restaurants.each do |restaurant|
     %tr
-      %td= restaurant.name
+      %td= link_to restaurant.name, restaurant 
       %td= restaurant.location
       %td= restaurant.telephone
-      %td= link_to 'Show', restaurant
-      %td= link_to 'Edit', edit_restaurant_path(restaurant)
-      %td= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
